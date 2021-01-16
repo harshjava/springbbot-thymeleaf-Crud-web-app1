@@ -1,7 +1,6 @@
 package com.controller;
 
 
-import com.model.Employee;
 import com.model.Student;
 import com.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,8 @@ public class StudentController {
         return "new_student";
     }
     @PostMapping("/saveStudent")
-    public String saveStudent(@ModelAttribute("student") Student student) {
+    public String saveStudent(@ModelAttribute("student") Student student)
+    {
         studentService.saveStudent(student);
         return "redirect:/show_webpage";
     }
@@ -59,7 +59,7 @@ public class StudentController {
         int pageSize = 5;
 
         Page< Student > page = studentService.findPaginated(pageNo, pageSize, sortField, sortDir);
-        List< Student > liststudents = page.getContent();
+        List< Student > listStudents = page.getContent();
 
         model.addAttribute("currentPage", pageNo);
         model.addAttribute("totalPages", page.getTotalPages());
@@ -69,7 +69,8 @@ public class StudentController {
         model.addAttribute("sortDir", sortDir);
         model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
 
-        model.addAttribute("listStudents", liststudents);
-        return "index";
+        model.addAttribute("listStudents", listStudents);
+
+        return "studentindex";
     }
 }

@@ -32,7 +32,7 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public Student getStudentById(long id) {
         Optional< Student > optional = studentRepository.findById(id);
-        Student student = null;
+        Student student = new Student();
         if (optional.isPresent()) {
             student = optional.get();
         } else {
