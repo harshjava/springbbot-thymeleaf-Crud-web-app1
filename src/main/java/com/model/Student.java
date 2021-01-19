@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "student_table")
+@Table(name = "student_table1")
 public class Student {
 
 
@@ -19,6 +19,15 @@ public class Student {
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "branch")
+    private String branch;
+
+    @Column(name = "age")
+    private String age;
+
+    @Column(name = "address")
+    private String address;
 
     public long getId() {
         return id;
@@ -44,4 +53,10 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
+    public String getBranch() { return branch; }
+    public void setBranch(String branch) { this.branch = branch; }
+    public String getAge() { return age; }
+    public void setAge(String age) { this.age = age; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 }

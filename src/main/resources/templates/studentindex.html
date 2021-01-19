@@ -32,7 +32,22 @@
                 <a th:href="@{'/page_num/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
                     Student Email</a>
             </th>
+            <th>
+                <a th:href="@{'/page_num/' + ${currentPage} + '?sortField=branch&sortDir=' + ${reverseSortDir}}">
+                    Branch</a>
+            </th>
+            <th>
+                <a th:href="@{'/page_num/' + ${currentPage} + '?sortField=age&sortDir=' + ${reverseSortDir}}">
+                    Age</a>
+            </th>
+            <th>
+                <a th:href="@{'/page_num/' + ${currentPage} + '?sortField=address&sortDir=' + ${reverseSortDir}}">
+                    Address</a>
+            </th>
             <th> Actions </th>
+
+
+
 
         </tr>
         </thead>
@@ -41,9 +56,17 @@
             <td th:text="${student.firstName}"></td>
             <td th:text="${student.lastName}"></td>
             <td th:text="${student.email}"></td>
+            <td th:text="${student.branch}"></td>
+            <td th:text="${student.age}"></td>
+            <td th:text="${student.address}"></td>
+
+
+
             <td> <a th:href="@{/showFormForUpdateStudent/{id}(id=${student.id})}" class="btn btn-primary">Update</a>
                 <a th:href="@{/deleteStudent/{id}(id=${student.id})}" class="btn btn-danger">Delete</a>
             </td>
+
+
         </tr>
         </tbody>
     </table>
