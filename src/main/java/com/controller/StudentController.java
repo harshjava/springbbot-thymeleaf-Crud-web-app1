@@ -23,7 +23,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping("/show_webpage")
+    @GetMapping("/")
     public String viewHomePage(Model model) {
         return findPaginated(1, "firstName", "asc", model);
     }
@@ -38,7 +38,7 @@ public class StudentController {
     public String saveStudent(@ModelAttribute("student") Student student)
     {
         studentService.saveStudent(student);
-        return "redirect:/show_webpage";
+        return "redirect:/";
     }
     @GetMapping("/showFormForUpdateStudent/{id}")
     public String showFormForUpdateStudent(@PathVariable( value = "id") long id, Model model) {
@@ -55,7 +55,7 @@ public class StudentController {
 
         // call delete employee method
         this.studentService.deleteStudentById(id);
-        return "redirect:/show_webpage";
+        return "redirect:/";
     }
     @GetMapping("/page_num/{pageNo}")
     public String findPaginated(@PathVariable(value = "pageNo") int pageNo,
